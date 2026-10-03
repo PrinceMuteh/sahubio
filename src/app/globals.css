@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/*
+ * SAHUBio design tokens — sampled from the Figma prototype (1440px desktop frame).
+ */
+@theme {
+  /* Brand greens */
+  --color-brand-950: #0a2514;
+  --color-brand-900: #172d21;
+  --color-brand-800: #213c2b;
+  --color-brand-700: #2e4a38;
+
+  /* Accent */
+  --color-accent: #f1d663;
+  --color-accent-600: #e7c94a;
+
+  /* Neutrals */
+  --color-cream: #f7f4ed;
+  --color-sage: #edf0e7;
+  --color-sage-200: #eceee3;
+  --color-heading: #1b3121;
+  --color-ink: #2b332e;
+  --color-ink-soft: #43473f;
+  --color-body: #717371;
+  --color-muted: #7f807f;
+  --color-line: #e5e2db;
+  --color-line-soft: #e2e2e2;
+
+  /* Text on dark surfaces */
+  --color-on-dark: #c9d8cf;
+  --color-on-dark-soft: #b4c5bb;
+  --color-on-dark-line: #354b3f;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 20px;
+  --radius-xl2: 24px;
+
+  --animate-fade-in: fade-in 0.2s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-brand-800);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Shared page container: 1312px content + 64px gutters at the 1440px design width. */
+  .container-site {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .container-site {
+      padding-inline: 32px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-site {
+      padding-inline: 48px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-site {
+      padding-inline: 64px;
+    }
+  }
+}
