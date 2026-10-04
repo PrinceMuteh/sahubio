@@ -86,6 +86,10 @@ export const divisions: Division[] = [
       "Fish Farming & Aquaculture Infrastructure",
       "Livestock Breeding & Rearing",
       "Quality Animal Products Supply",
+      "Cow Horns",
+      "Cow Hooves",
+      "Cow Bones",
+      "Cow Skin",
     ],
     images: {
       hero: img("biological-resources", "hero"),
