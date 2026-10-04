@@ -33,6 +33,11 @@ export function TeamSection() {
             <h3 className="mt-[3px] text-[20.5px] leading-6 font-bold text-heading uppercase">
               {member.name}
             </h3>
+            {member.profession && (
+              <p className="mt-2 text-[14px] leading-5 text-ink-soft">
+                <span className="font-semibold text-heading">Profession:</span> {member.profession}
+              </p>
+            )}
             <p className="mt-3 text-[16px] leading-[26.67px] text-body">{member.bio}</p>
           </li>
         ))}

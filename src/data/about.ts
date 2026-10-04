@@ -56,30 +56,35 @@ export const coreValues: {
 export const team: {
   name: string;
   role: string;
+  profession?: string;
   bio: string;
   image: string;
 }[] = [
   {
     name: "Sharafaddeen Mubarak",
     role: "Group Managing Director",
+    profession: "Farmer",
     bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
     image: "/images/team/member-1.jpg",
   },
   {
     name: "Sharafaddeen Mubarak",
     role: "Group Managing Director",
+    profession: "Farmer",
     bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
     image: "/images/team/member-2.jpg",
   },
   {
     name: "Sharafaddeen Mubarak",
     role: "Group Managing Director",
+    profession: "Farmer",
     bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
     image: "/images/team/member-1.jpg",
   },
   {
     name: "Sharafaddeen Mubarak",
     role: "Group Managing Director",
+    profession: "Farmer",
     bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
     image: "/images/team/member-2.jpg",
   },
