@@ -49,43 +49,41 @@ export const coreValues: {
   },
 ];
 
-/**
- * Leadership team. The design ships placeholder biographies — replace these
- * entries with confirmed names, roles, photos and bios.
- */
+/** Leadership team, in the order shown on the About page. */
 export const team: {
   name: string;
   role: string;
-  profession?: string;
-  bio: string;
+  profession: string;
   image: string;
 }[] = [
   {
-    name: "Sharafaddeen Mubarak",
-    role: "Group Managing Director",
-    profession: "Farmer",
-    bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
-    image: "/images/team/member-1.jpg",
+    name: "Mohammed Musa",
+    role: "GMD",
+    profession: "Architect/Farming",
+    image: "/images/team/mohammed-musa.jpg",
   },
   {
-    name: "Sharafaddeen Mubarak",
-    role: "Group Managing Director",
-    profession: "Farmer",
-    bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
-    image: "/images/team/member-2.jpg",
+    name: "Mohammed Bello Yabo",
+    role: "Director",
+    profession: "Historian/Farmer",
+    image: "/images/team/mohammed-bello-yabo.jpg",
   },
   {
-    name: "Sharafaddeen Mubarak",
-    role: "Group Managing Director",
-    profession: "Farmer",
-    bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
-    image: "/images/team/member-1.jpg",
+    name: "Abubakar Mohammed Sani",
+    role: "Director",
+    profession: "Marketing/Farming",
+    image: "/images/team/abubakar-mohammed-sani.jpg",
   },
   {
-    name: "Sharafaddeen Mubarak",
-    role: "Group Managing Director",
-    profession: "Farmer",
-    bio: "Placeholder biography for the team member, including focus areas, experience, and responsibilities.",
-    image: "/images/team/member-2.jpg",
+    name: "Muhammad Usman",
+    role: "Director",
+    profession: "Farming",
+    image: "/images/team/muhammad-usman.jpg",
+  },
+  {
+    name: "Joshua Yohanna",
+    role: "Company Secretary",
+    profession: "Agricultural Development & Linguist",
+    image: "/images/team/joshua-yohanna.jpg",
   },
 ];
