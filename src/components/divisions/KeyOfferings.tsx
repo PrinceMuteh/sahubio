@@ -22,10 +22,10 @@ export function KeyOfferings({ offerings, inquiryHref }: KeyOfferingsProps) {
               <Link
                 href={inquiryHref}
                 className={cn(
-                  "group flex min-h-[75px] items-center gap-4 rounded-[16px] px-6 py-4 transition-colors duration-200",
+                  "group flex min-h-[75px] items-center gap-4 rounded-[20px] px-6 py-4 transition-colors duration-200",
                   featured
-                    ? "bg-brand-800 text-white"
-                    : "bg-white text-ink hover:bg-brand-800 hover:text-white",
+                    ? "bg-[#183c27] text-white"
+                    : "bg-white text-ink hover:bg-[#183c27] hover:text-white",
                 )}
               >
                 <span

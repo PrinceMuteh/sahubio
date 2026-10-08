@@ -1,0 +1,77 @@
+name: Deploy to HostAfrica (FTP)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22        # matches the version selected in the panel
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint & test
+        run: |
+          npm run lint --if-present
+          npm test --if-present
+
+      - name: Build
+        run: npm run build
+        env:
+          # Build-time public vars (set under repo Settings > Variables)
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
+
+      - name: Assemble standalone bundle
+        run: |
+          mkdir -p .next/standalone/.next
+          cp -r .next/static .next/standalone/.next/static
+          if [ -d public ]; then cp -r public .next/standalone/public; fi
+
+      - name: Upload release (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps            # change to ftp if the server rejects TLS
+          port: 21
+          local-dir: ./.next/standalone/
+          server-dir: ${{ secrets.FTP_APP_DIR }}release/
+
+      - name: Prepare restart trigger
+        run: |
+          mkdir -p restart
+          echo "${{ github.sha }}-${{ github.run_id }}" > restart/restart.txt
+
+      - name: Restart app (Passenger via tmp/restart.txt)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./restart/
+          server-dir: ${{ secrets.FTP_APP_DIR }}tmp/
+
+      - name: Smoke test
+        run: |
+          sleep 15
+          curl -fsS -o /dev/null -w "%{http_code}\n" "${{ vars.APP_URL }}"
