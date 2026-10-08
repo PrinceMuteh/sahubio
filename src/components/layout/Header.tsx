@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { mainNav, type NavItem } from "@/data/navigation";
 import { divisions, divisionHref } from "@/data/divisions";
 import { ButtonLink } from "@/components/ui/Button";
@@ -28,7 +28,19 @@ function ActiveBar({ visible }: { visible: boolean }) {
   );
 }
 
-function DesktopNavItem({ item, active }: { item: NavItem; active: boolean }) {
+function DesktopNavItem({
+  item,
+  active,
+  dropdownOpen,
+  onDropdownChange,
+  triggerRef,
+}: {
+  item: NavItem;
+  active: boolean;
+  dropdownOpen: boolean;
+  onDropdownChange: (open: boolean) => void;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
+}) {
   const label = (
     <span
       className={cn(
@@ -51,7 +63,7 @@ function DesktopNavItem({ item, active }: { item: NavItem; active: boolean }) {
         className="group/item flex h-full flex-col items-center pt-[27px]"
       >
         {label}
-        <span className="mt-1 rounded-full bg-sage-200 px-[6px] text-[9px] leading-[15px] font-semibold text-[#6b7064]">
+        <span className="mt-1 rounded-full bg-sage-200 px-[6px] whitespace-nowrap text-[9px] leading-[15px] font-semibold text-[#6b7064]">
           {item.badge}
         </span>
         <span className="mt-[3px]">
@@ -63,46 +75,37 @@ function DesktopNavItem({ item, active }: { item: NavItem; active: boolean }) {
 
   if (item.hasDropdown) {
     return (
-      <div className="group/item relative h-full">
-        <Link
-          href={item.href}
-          aria-current={active ? "page" : undefined}
-          className={cn("flex h-full flex-col items-center gap-[2px]", active ? "pt-[36px]" : "pt-[37px]")}
+      <div className="group/item h-full" onMouseEnter={() => onDropdownChange(true)}>
+        <button
+          ref={triggerRef}
+          type="button"
+          aria-expanded={dropdownOpen}
+          aria-controls="desktop-divisions-menu"
+          onClick={(event) => {
+            onDropdownChange(true);
+            if (event.detail === 0) {
+              requestAnimationFrame(() => document.querySelector<HTMLAnchorElement>("#desktop-divisions-menu li a")?.focus());
+            }
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "ArrowDown") {
+              event.preventDefault();
+              onDropdownChange(true);
+              requestAnimationFrame(() => document.querySelector<HTMLAnchorElement>("#desktop-divisions-menu li a")?.focus());
+            }
+          }}
+          className={cn("flex h-full cursor-pointer flex-col items-center gap-[2px]", active ? "pt-[36px]" : "pt-[37px]")}
         >
           <span className="flex items-center gap-[6px]">
             {label}
             <ChevronDown
               aria-hidden
-              className="size-[14px] text-ink transition-transform duration-200 group-hover/item:rotate-180 group-focus-within/item:rotate-180"
+              className={cn("size-[14px] text-ink transition-transform duration-200", dropdownOpen && "rotate-180")}
               strokeWidth={2}
             />
           </span>
           <ActiveBar visible={active} />
-        </Link>
-
-        <div className="invisible absolute top-[68px] left-1/2 z-50 w-[300px] -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-focus-within/item:visible group-focus-within/item:opacity-100 group-hover/item:visible group-hover/item:opacity-100">
-          <ul className="rounded-[20px] border border-line bg-white p-2 shadow-[0_24px_48px_-16px_rgba(23,45,33,0.25)]">
-            {divisions.map((division) => (
-              <li key={division.slug}>
-                <Link
-                  href={divisionHref(division.slug)}
-                  className="flex items-center gap-3 rounded-[14px] px-3 py-2.5 text-[14px] text-ink transition-colors hover:bg-cream hover:text-brand-800"
-                >
-                  <span className="w-6 text-[12px] text-muted">{division.number}</span>
-                  {division.title}
-                </Link>
-              </li>
-            ))}
-            <li className="mt-1 border-t border-line pt-1">
-              <Link
-                href={item.href}
-                className="flex items-center rounded-[14px] px-3 py-2.5 text-[14px] font-semibold text-brand-800 transition-colors hover:bg-cream"
-              >
-                View all divisions
-              </Link>
-            </li>
-          </ul>
-        </div>
+        </button>
       </div>
     );
   }
@@ -128,6 +131,19 @@ export function Header() {
   const [menuTop, setMenuTop] = useState(0);
   const barRef = useRef<HTMLDivElement>(null);
   const [divisionsOpen, setDivisionsOpen] = useState(false);
+  const [desktopDivisionsOpen, setDesktopDivisionsOpen] = useState(false);
+  const desktopTriggerRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!desktopDivisionsOpen) return;
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (event.target instanceof Node && !barRef.current?.contains(event.target)) {
+        setDesktopDivisionsOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    return () => document.removeEventListener("pointerdown", closeOnOutsideClick);
+  }, [desktopDivisionsOpen]);
 
   const [menuPathname, setMenuPathname] = useState(pathname);
 
@@ -136,6 +152,7 @@ export function Header() {
     setMenuPathname(pathname);
     setOpen(false);
     setDivisionsOpen(false);
+    setDesktopDivisionsOpen(false);
   }
 
   // Lock page scroll while the mobile menu is open.
@@ -147,7 +164,21 @@ export function Header() {
   }, [open]);
 
   return (
-    <div ref={barRef} className="relative z-40 bg-white">
+    <div
+      ref={barRef}
+      className="relative z-40 bg-white"
+      onMouseLeave={() => setDesktopDivisionsOpen(false)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setDesktopDivisionsOpen(false);
+      }}
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && desktopDivisionsOpen) {
+          event.preventDefault();
+          setDesktopDivisionsOpen(false);
+          desktopTriggerRef.current?.focus();
+        }
+      }}
+    >
       <Container className="relative flex h-[76px] items-center justify-between lg:h-[96px]">
         <Link href="/" aria-label="SAHUBio home" className="relative block shrink-0">
           <Image
@@ -166,8 +197,19 @@ export function Header() {
         >
           <ul className="flex h-full items-start gap-3 xl:gap-6">
             {mainNav.map((item) => (
-              <li key={item.href} className="h-full">
-                <DesktopNavItem item={item} active={isActive(pathname, item)} />
+              <li
+                key={item.href}
+                className="h-full"
+                onMouseEnter={() => { if (!item.hasDropdown) setDesktopDivisionsOpen(false); }}
+                onFocus={() => { if (!item.hasDropdown) setDesktopDivisionsOpen(false); }}
+              >
+                <DesktopNavItem
+                  item={item}
+                  active={isActive(pathname, item)}
+                  dropdownOpen={desktopDivisionsOpen}
+                  onDropdownChange={setDesktopDivisionsOpen}
+                  triggerRef={desktopTriggerRef}
+                />
               </li>
             ))}
           </ul>
@@ -195,6 +237,37 @@ export function Header() {
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </Container>
+
+      {desktopDivisionsOpen && (
+        <nav
+          id="desktop-divisions-menu"
+          aria-label="Agro divisions"
+          onClick={() => setDesktopDivisionsOpen(false)}
+          className="absolute inset-x-0 top-full hidden bg-sage lg:block"
+        >
+          <Container className="grid grid-cols-[280px_minmax(0,1fr)] gap-8 py-8">
+            <div>
+              <Link href="/agro-divisions" className="text-[24px] leading-[29px] text-heading hover:underline">
+                Agro Divisions
+              </Link>
+              <p className="mt-2 text-[13px] leading-[18px] text-body">Explore our specialized units</p>
+            </div>
+            <ul className="grid max-w-[960px] grid-cols-3 gap-x-[30px] gap-y-[18px]">
+              {divisions.map((division) => (
+                <li key={division.slug}>
+                  <Link
+                    href={divisionHref(division.slug)}
+                    className="group/division flex items-start gap-4 text-[14px] leading-[18px] text-heading hover:underline"
+                  >
+                    <ArrowUpRight aria-hidden className="mt-[2px] size-3 shrink-0" strokeWidth={1.5} />
+                    <span>{division.footerLabel === "Research & Lab" ? division.footerLabel : division.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </nav>
+      )}
 
       {open && (
         <div

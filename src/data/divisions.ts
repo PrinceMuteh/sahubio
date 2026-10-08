@@ -86,10 +86,8 @@ export const divisions: Division[] = [
       "Fish Farming & Aquaculture Infrastructure",
       "Livestock Breeding & Rearing",
       "Quality Animal Products Supply",
-      "Cow Horns",
-      "Cow Hooves",
-      "Cow Bones",
-      "Cow Skin",
+      "Cow Horns, Skin & Hooves.",
+      "Animal Bones & Skins",
     ],
     images: {
       hero: img("biological-resources", "hero"),
@@ -152,6 +150,7 @@ export const divisions: Division[] = [
       "Farm Layout & Production System Design",
       "Irrigation & Water Management Planning",
       "Climate-Smart Tech & Agro-Processing Setups",
+      "Agricultural Equipment & Farm Mechanization",
       "Farmer Capacity Building & Stakeholder Engagement",
     ],
     images: {
