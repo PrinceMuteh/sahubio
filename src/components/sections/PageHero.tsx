@@ -21,7 +21,7 @@ type PageHeroProps = {
 };
 
 export const heroOverlay =
-  "linear-gradient(90deg, rgba(19,40,29,0.92) 0%, rgba(19,40,29,0.84) 45%, rgba(19,40,29,0.55) 75%, rgba(19,40,29,0.26) 100%)";
+  "linear-gradient(90deg, rgba(11,38,24,0.92) 0%, rgba(11,38,24,0.745) 50%, rgba(11,38,24,0.7) 61%, rgba(11,38,24,0.58) 72%, rgba(11,38,24,0.42) 83%, rgba(11,38,24,0.22) 100%)";
 
 export function PageHero({
   eyebrow,

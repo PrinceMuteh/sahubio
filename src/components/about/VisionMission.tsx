@@ -13,14 +13,14 @@ const statements = [
 
 export function VisionMission() {
   return (
-    <div className="grid gap-[18px] md:grid-cols-2">
+    <div className="grid gap-[18px] md:grid-cols-2 md:gap-6">
       {statements.map((statement) => (
         <article
           key={statement.title}
           className={
             statement.tone === "dark"
-              ? "rounded-[20px] bg-brand-800 p-8 lg:min-h-[283px] lg:p-10 lg:pt-[41px]"
-              : "rounded-[20px] bg-accent p-8 lg:min-h-[283px] lg:p-10 lg:pt-[41px]"
+              ? "rounded-[20px] bg-brand-800 p-8 lg:p-10 lg:pt-[38px]"
+              : "rounded-[20px] bg-accent p-8 lg:p-10 lg:pt-[38px]"
           }
         >
           <h2
@@ -35,7 +35,7 @@ export function VisionMission() {
           <p
             className={
               statement.tone === "dark"
-                ? "mt-[26px] text-[17px] leading-[1.7] text-[#d1e5d8] lg:text-[19px] lg:leading-[31px]"
+                ? "mt-[26px] text-[17px] leading-[1.7] text-on-dark lg:text-[19px] lg:leading-[31px]"
                 : "mt-[26px] text-[17px] leading-[1.7] text-body lg:text-[19px] lg:leading-[31px]"
             }
           >

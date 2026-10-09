@@ -17,12 +17,12 @@ export function CtaBanner({
 }: CtaBannerProps) {
   return (
     <section className="bg-accent">
-      <Container className="flex flex-col gap-10 py-16 lg:flex-row lg:items-end lg:justify-between lg:gap-12 lg:pt-[86px] lg:pb-20">
+      <Container className="flex flex-col gap-10 py-16 lg:flex-row lg:items-start lg:justify-between lg:gap-12 lg:pt-[85px] lg:pb-[81px]">
         <div className="max-w-[940px]">
-          <h2 className="text-[30px] leading-[1.2] font-bold text-heading sm:text-[36px] lg:text-[42px] lg:leading-[48px]">
+          <h2 className="text-[30px] leading-[1.2] font-bold text-heading sm:text-[36px] lg:text-[42px] lg:leading-[47px]">
             {title}
           </h2>
-          <p className="mt-[18px] text-[16px] leading-[1.65] text-body lg:text-[17px] lg:leading-[28px]">
+          <p className="mt-[18px] text-[16px] leading-[1.65] text-body lg:mt-[25px] lg:text-[17px] lg:leading-[28px]">
             {description}
           </p>
         </div>

@@ -25,7 +25,7 @@ function CardBody({ division }: { division: Division }) {
         <ArrowUpRight
           aria-hidden
           className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          strokeWidth={2}
+          strokeWidth={3}
         />
       </span>
     </>

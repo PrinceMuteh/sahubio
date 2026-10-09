@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { SocialIcon } from "@/components/ui/SocialIcon";
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-[15px] leading-5 font-normal text-accent">{children}</h2>;
+  return <h2 className="text-[15px] leading-5 font-normal text-accent lg:pt-[6px]">{children}</h2>;
 }
 
 const linkClass = "text-[14px] leading-5 text-on-dark transition-colors hover:text-white";
@@ -14,10 +14,10 @@ const linkClass = "text-[14px] leading-5 text-on-dark transition-colors hover:te
 export function Footer() {
   return (
     <footer className="bg-brand-900 text-on-dark">
-      <Container className="pt-[57px] pb-7">
+      <Container className="pt-[57px] pb-7 lg:pb-[26px]">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6 xl:grid-cols-[374px_218px_316px_1fr] xl:gap-0">
           <div className="max-w-[330px]">
-            <p className="pt-[3px] text-[15px] leading-[19px] font-semibold text-white">
+            <p className="pt-[3px] text-[15px] leading-[19px] font-semibold text-white lg:pt-[6px] lg:leading-[18px]">
               Sahu Bio Resource
               <br />
               Nigeria Limited
@@ -45,7 +45,7 @@ export function Footer() {
 
           <nav aria-label="Quick links">
             <FooterHeading>Quick Links</FooterHeading>
-            <ul className="mt-5 flex flex-col gap-[10px] text-[14px] leading-5">
+            <ul className="mt-5 flex flex-col gap-[10px] text-[14px] leading-5 lg:mt-[15px]">
               {footerQuickLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className={linkClass}>
@@ -58,7 +58,7 @@ export function Footer() {
 
           <nav aria-label="Agro divisions">
             <FooterHeading>Agro Divisions</FooterHeading>
-            <ul className="mt-5 flex flex-col gap-[10px] text-[14px] leading-5">
+            <ul className="mt-5 flex flex-col gap-[10px] text-[14px] leading-5 lg:mt-[15px]">
               {divisions.map((division) => (
                 <li key={division.slug}>
                   <Link href={divisionHref(division.slug)} className={linkClass}>
@@ -71,7 +71,7 @@ export function Footer() {
 
           <div>
             <FooterHeading>Contact &amp; Compliance</FooterHeading>
-            <ul className="mt-5 flex flex-col gap-[10px] text-[14px] leading-5">
+            <ul className="mt-5 flex flex-col gap-[10px] text-[14px] leading-5 lg:mt-[15px]">
               <li>{site.contact.location}</li>
               <li>
                 <a href={site.contact.phoneHref} className={linkClass}>
@@ -87,7 +87,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 border-t border-on-dark-line pt-10 text-[12px] leading-4 md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col gap-4 border-t border-on-dark-line pt-10 text-[12px] lg:pt-[41px] leading-4 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {site.legalName} All Rights Reserved.
           </p>

@@ -12,8 +12,8 @@ function Placeholder({ compact = false }: { compact?: boolean }) {
     <div
       className={
         compact
-          ? "flex h-[220px] flex-col items-center justify-center gap-[18px] rounded-[10px] bg-sage text-[#6f746c]"
-          : "flex h-[180px] flex-col items-center justify-center gap-[18px] rounded-[10px] bg-sage text-[#6f746c]"
+          ? "flex h-[220px] flex-col items-center justify-center gap-[18px] rounded-[10px] bg-sage text-body"
+          : "flex h-[180px] flex-col items-center justify-center gap-[18px] rounded-[10px] bg-sage text-body"
       }
     >
       <FileText aria-hidden className="size-[38px]" strokeWidth={1.1} />

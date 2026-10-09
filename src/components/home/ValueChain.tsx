@@ -14,11 +14,12 @@ const icons: Record<ValueChainIcon, LucideIcon> = {
 
 export function ValueChain() {
   return (
-    <section className="bg-cream py-16 lg:pt-[79px] lg:pb-20">
+    <section className="bg-cream py-16 lg:pt-[81px] lg:pb-20">
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
           <SectionHeading
             eyebrow="The SAHUBio Advantage"
+            titleClassName="lg:mt-5"
             title={
               <>
                 One Accountable Partner
@@ -26,7 +27,7 @@ export function ValueChain() {
               </>
             }
           />
-          <p className="max-w-[632px] text-[16px] leading-[1.7] text-body lg:pb-px lg:text-[17px] lg:leading-[28px] lg:tracking-[-0.08px]">
+          <p className="max-w-[632px] text-[16px] leading-[1.7] text-body lg:-mb-[2px] lg:text-[17px] lg:leading-[28px] lg:tracking-[-0.08px]">
             Managing agricultural contracts across multiple vendors leads to produce loss, delays,
             and supply chain fragmentation. SAHUBio unifies the full cycle under one transparent
             operational standard.

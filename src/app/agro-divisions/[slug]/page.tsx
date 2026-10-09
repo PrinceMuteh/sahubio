@@ -59,7 +59,7 @@ export default async function DivisionPage({ params }: PageProps<"/agro-division
         <Container className="grid gap-12 lg:grid-cols-[1fr_692px] lg:gap-16">
           <div className="lg:pt-[2px]">
             <Eyebrow>Division Overview</Eyebrow>
-            <p className="mt-[25px] max-w-[556px] text-[17px] leading-[1.7] text-body lg:text-[19px] lg:leading-[31px]">
+            <p className="mt-[25px] max-w-[540px] text-[17px] leading-[1.7] text-body lg:text-[19px] lg:leading-[31px]">
               {division.overview}
             </p>
             <ButtonLink href={inquiryHref} variant="brand" className="mt-[27px]">
