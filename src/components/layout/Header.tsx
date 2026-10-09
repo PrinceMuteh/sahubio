@@ -21,10 +21,25 @@ function ActiveBar({ visible }: { visible: boolean }) {
     <span
       aria-hidden
       className={cn(
-        "h-[3px] w-5 rounded-full bg-accent transition-opacity",
+        "h-[2px] w-[21px] rounded-full bg-accent transition-opacity",
         visible ? "opacity-100" : "opacity-0",
       )}
     />
+  );
+}
+
+function NigeriaFlag({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 38 28"
+      role="img"
+      aria-label="Nigeria"
+      className={cn("h-[28px] w-[38px] shrink-0", className)}
+    >
+      <rect width="38" height="28" fill="#fff" />
+      <rect width="13" height="28" fill="#257c30" />
+      <rect x="25" width="13" height="28" fill="#257c30" />
+    </svg>
   );
 }
 
@@ -44,11 +59,8 @@ function DesktopNavItem({
   const label = (
     <span
       className={cn(
-        "leading-5 whitespace-nowrap transition-colors",
-        active
-          ? "text-[16px] font-semibold text-brand-800"
-          : "text-[14px] text-ink group-hover/item:text-brand-800",
-        item.badge && "text-[16px]",
+        "text-[14px] leading-5 whitespace-nowrap text-heading transition-colors",
+        active ? "font-semibold" : "font-medium group-hover/item:text-brand-700",
       )}
     >
       {item.label}
@@ -60,10 +72,10 @@ function DesktopNavItem({
       <Link
         href={item.href}
         aria-current={active ? "page" : undefined}
-        className="group/item flex h-full flex-col items-center pt-[27px]"
+        className="group/item flex h-full flex-col items-center pt-[29px]"
       >
         {label}
-        <span className="mt-1 rounded-full bg-sage-200 px-[6px] whitespace-nowrap text-[9px] leading-[15px] font-semibold text-[#6b7064]">
+        <span className="mt-1 rounded-full bg-sage px-[7px] whitespace-nowrap text-[9px] leading-[14px] font-semibold text-body">
           {item.badge}
         </span>
         <span className="mt-[3px]">
@@ -94,13 +106,13 @@ function DesktopNavItem({
               requestAnimationFrame(() => document.querySelector<HTMLAnchorElement>("#desktop-divisions-menu li a")?.focus());
             }
           }}
-          className={cn("flex h-full cursor-pointer flex-col items-center gap-[2px]", active ? "pt-[36px]" : "pt-[37px]")}
+          className={cn("flex h-full cursor-pointer flex-col items-center gap-1", active ? "pt-[35px]" : "pt-[39px]")}
         >
-          <span className="flex items-center gap-[6px]">
+          <span className="flex items-center gap-[2px]">
             {label}
             <ChevronDown
               aria-hidden
-              className={cn("size-[14px] text-ink transition-transform duration-200", dropdownOpen && "rotate-180")}
+              className={cn("size-[14px] text-heading transition-transform duration-200", dropdownOpen && "rotate-180")}
               strokeWidth={2}
             />
           </span>
@@ -115,8 +127,8 @@ function DesktopNavItem({
       href={item.href}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "group/item flex h-full flex-col items-center gap-[2px]",
-        active ? "pt-[36px]" : "pt-[37px]",
+        "group/item flex h-full flex-col items-center gap-1",
+        active ? "pt-[35px]" : "pt-[39px]",
       )}
     >
       {label}
@@ -180,20 +192,24 @@ export function Header() {
       }}
     >
       <Container className="relative flex h-[76px] items-center justify-between lg:h-[96px]">
-        <Link href="/" aria-label="SAHUBio home" className="relative block shrink-0">
+        <Link
+          href="/"
+          aria-label="SAHUBio home"
+          className="relative block shrink-0 lg:flex lg:h-full lg:items-center lg:overflow-hidden"
+        >
           <Image
             src="/images/brand/logo.png"
             alt="SAHUBio — Sahu Bio Resources Nigeria Limited"
-            width={75}
-            height={90}
+            width={84}
+            height={101}
             preload
-            className="h-[64px] w-auto lg:mt-[6px] lg:h-[90px]"
+            className="h-[64px] w-auto lg:ml-[17px] lg:h-[101px]"
           />
         </Link>
 
         <nav
           aria-label="Main"
-          className="absolute inset-y-0 left-[calc(50%-8px)] hidden -translate-x-1/2 lg:block"
+          className="absolute inset-y-0 left-[calc(50%-45px)] hidden -translate-x-1/2 lg:block"
         >
           <ul className="flex h-full items-start gap-3 xl:gap-6">
             {mainNav.map((item) => (
@@ -215,12 +231,12 @@ export function Header() {
           </ul>
         </nav>
 
-        <ButtonLink
-          href="/contact"
-          className="hidden gap-2.5 px-5 lg:inline-flex xl:w-[188px] xl:gap-4 xl:px-6"
-        >
-          Partner With Us
-        </ButtonLink>
+        <div className="hidden items-center gap-5 lg:flex xl:mr-[5px]">
+          <NigeriaFlag className="hidden xl:block" />
+          <ButtonLink href="/contact" className="gap-2.5 px-5 xl:w-[190px] xl:gap-4 xl:px-6">
+            Partner With Us
+          </ButtonLink>
+        </div>
 
         <button
           type="button"
@@ -292,7 +308,7 @@ export function Header() {
                       >
                         {item.label}
                         {item.badge && (
-                          <span className="rounded-full bg-sage-200 px-2 text-[11px] leading-5 font-semibold text-[#6b7064]">
+                          <span className="rounded-full bg-sage-200 px-2 text-[11px] leading-5 font-semibold text-body">
                             {item.badge}
                           </span>
                         )}

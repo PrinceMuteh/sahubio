@@ -24,8 +24,8 @@ export function KeyOfferings({ offerings, inquiryHref }: KeyOfferingsProps) {
                 className={cn(
                   "group flex min-h-[75px] items-center gap-4 rounded-[20px] px-6 py-4 transition-colors duration-200",
                   featured
-                    ? "bg-[#183c27] text-white"
-                    : "bg-white text-ink hover:bg-[#183c27] hover:text-white",
+                    ? "bg-brand-800 text-white"
+                    : "bg-white text-ink hover:bg-brand-800 hover:text-white",
                 )}
               >
                 <span
@@ -40,10 +40,10 @@ export function KeyOfferings({ offerings, inquiryHref }: KeyOfferingsProps) {
                 <ArrowUpRight
                   aria-hidden
                   className={cn(
-                    "size-4 shrink-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+                    "mr-[2px] size-[18px] shrink-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
                     featured ? "text-accent" : "text-ink group-hover:text-accent",
                   )}
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                 />
               </Link>
             </li>

@@ -18,8 +18,8 @@ function Arrow() {
   return (
     <ArrowUpRight
       aria-hidden
-      className="size-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-      strokeWidth={2.25}
+      className="size-[18px] shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      strokeWidth={2.75}
     />
   );
 }

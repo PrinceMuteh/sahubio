@@ -9,8 +9,8 @@ export function HomeHero() {
   return (
     <section className="relative isolate flex items-center overflow-hidden py-24 lg:h-[730px] lg:py-0">
       <Image
-        src="/images/heroes/home.jpg"
-        alt="Maize fields beside a farm road in Nigeria"
+        src="/images/heroes/home-farmers.jpg"
+        alt="Farmers walking through a misty crop field at dawn"
         fill
         preload
         sizes="100vw"

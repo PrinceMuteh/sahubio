@@ -28,10 +28,10 @@ export default function AboutPage() {
         imageAlt="Young maize rows stretching towards trees at sunset"
       />
       <WhoWeAre />
-      <section className="bg-cream py-16 lg:pt-[66px] lg:pb-20">
+      <section className="bg-cream py-16 lg:pt-[72px] lg:pb-[79px]">
         <Container>
           <VisionMission />
-          <div className="mt-20 lg:mt-[142px]">
+          <div className="mt-20 lg:mt-[152px]">
             <TeamSection />
           </div>
         </Container>

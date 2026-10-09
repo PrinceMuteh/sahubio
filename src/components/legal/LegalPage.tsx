@@ -13,11 +13,11 @@ export function LegalPage({ document }: { document: LegalDocument }) {
       <PageHero
         eyebrow="Corporate Information"
         title={document.title}
-        titleClassName="lg:text-[64px] lg:leading-[72px]"
+        titleClassName="lg:mt-[22px] lg:text-[64px] lg:leading-[72px]"
         subtitle={`Effective Date: ${document.effectiveDate}`}
-        subtitleClassName="text-accent lg:text-[16px] lg:leading-6"
-        tone="deep"
-        heightClassName="lg:h-[298px]"
+        subtitleClassName="text-accent lg:mt-[22px] lg:text-[16px] lg:leading-6"
+        tone={document.heroTone}
+        heightClassName="lg:h-[298px] lg:pt-[2px]"
       />
       <section className="bg-cream py-16 lg:pt-[72px] lg:pb-[73px]">
         <Container className="grid gap-10 lg:grid-cols-[272px_1fr] lg:gap-20">

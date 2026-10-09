@@ -111,7 +111,7 @@ export function Select({
         "rounded-[8px] border transition-colors",
         tone === "cream" ? "bg-cream" : "bg-white",
         invalid ? "border-red-500" : "border-line-soft",
-        open && "border-[#d8dad5]",
+        open && "border-line",
       )}
     >
       <input type="hidden" name={name} value={value} />

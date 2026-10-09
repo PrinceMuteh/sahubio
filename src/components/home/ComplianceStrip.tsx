@@ -4,7 +4,7 @@ import { regulators } from "@/data/home";
 
 export function ComplianceStrip() {
   return (
-    <section className="bg-cream py-16 lg:py-[72px]">
+    <section className="bg-cream py-16 lg:pt-[72px] lg:pb-[70px]">
       <Container>
         <div className="mx-auto max-w-[982px]">
           <Eyebrow className="justify-center">Regulatory Trust &amp; Compliance</Eyebrow>

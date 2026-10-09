@@ -22,14 +22,14 @@ const icons: Record<CoreValueIcon, LucideIcon> = {
 
 export function CoreValues() {
   return (
-    <section className="bg-white py-16 lg:pt-[76px] lg:pb-20">
+    <section className="bg-white py-16 lg:pt-20 lg:pb-[78px]">
       <Container>
         <SectionHeading
           eyebrow="Our Principles"
           title="Core Corporate Values"
-          titleClassName="lg:mt-[37px]"
+          titleClassName="lg:mt-9"
         />
-        <ul className="mt-[37px] grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-[34px]">
+        <ul className="mt-[37px] lg:mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-[34px]">
           {coreValues.map((value) => {
             const Icon = icons[value.icon];
             return (

@@ -26,7 +26,7 @@ function ShowcaseCard({ division, sizes }: { division: Division; sizes: string }
           <ArrowUpRight
             aria-hidden
             className="mt-[2px] size-6 shrink-0 text-ink transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            strokeWidth={1.75}
+            strokeWidth={2}
           />
         </div>
         <p className="mt-[17px] text-[15px] leading-[25px] tracking-[-0.1px] text-body">{division.homeDescription}</p>
@@ -40,9 +40,13 @@ export function DivisionsShowcase() {
   const secondRow = divisions.slice(4);
 
   return (
-    <section className="bg-white py-16 lg:pt-[77px] lg:pb-20">
+    <section className="bg-white py-16 lg:pt-20 lg:pb-[79px]">
       <Container>
-        <SectionHeading eyebrow="Our Agro Divisions" title="Integrated Agricultural Solutions" />
+        <SectionHeading
+          eyebrow="Our Agro Divisions"
+          title="Integrated Agricultural Solutions"
+          titleClassName="lg:mt-5"
+        />
 
         <ul className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {firstRow.map((division) => (

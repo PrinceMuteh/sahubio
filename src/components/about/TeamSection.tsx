@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { cn } from "@/lib/cn";
 import { team, technicalPartners, type TeamMember } from "@/data/about";
 
 export function TeamSection() {
@@ -16,19 +17,19 @@ export function TeamSection() {
       </p>
 
       <MemberCards members={team} />
-      <section aria-labelledby="technical-partners" className="mt-10">
+      <section aria-labelledby="technical-partners" className="mt-10 lg:mt-[35px]">
         <h2 id="technical-partners" className="text-[32px] leading-tight font-bold text-heading lg:text-[42px] lg:leading-[46px]">
           Technical Partners
         </h2>
-        <MemberCards members={technicalPartners} />
+        <MemberCards members={technicalPartners} className="lg:mt-[37px]" />
       </section>
     </div>
   );
 }
 
-function MemberCards({ members }: { members: TeamMember[] }) {
+function MemberCards({ members, className }: { members: TeamMember[]; className?: string }) {
   return (
-    <ul className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <ul className={cn("mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-4", className)}>
       {members.map((member) => (
         <li key={member.name} className="rounded-[20px] bg-white p-6 pb-4 lg:min-h-[412px]">
           <div

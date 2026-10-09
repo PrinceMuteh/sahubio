@@ -27,35 +27,35 @@ export default function ShopPage() {
           <p className="inline-flex h-[36px] items-center rounded-full bg-accent px-[22px] text-[12px] leading-4 font-semibold text-heading uppercase">
             Shop Launching Soon
           </p>
-          <h1 className="mx-auto mt-6 max-w-[1000px] text-[34px] leading-[1.15] font-bold text-heading sm:text-[44px] lg:mt-[24px] lg:text-[56px] lg:leading-[62px]">
+          <h1 className="mx-auto mt-6 max-w-[1000px] text-[34px] leading-[1.15] font-bold text-heading sm:text-[44px] lg:mt-[28px] lg:text-[56px] lg:leading-[60px]">
             SAHUBio Store — Directly Sourced
             <br className="hidden lg:block" /> Agro-Inputs &amp; Biological Products
           </h1>
-          <p className="mx-auto mt-6 max-w-[840px] text-[16px] leading-[1.7] text-body lg:mt-[28px] lg:text-[18px] lg:leading-[30px]">
+          <p className="mx-auto mt-6 max-w-[840px] text-[16px] leading-[1.7] text-body lg:mt-[29px] lg:text-[18px] lg:leading-[30px]">
             We are building a simple, direct-to-consumer and B2B ordering portal for certified
             seeds, organic biofertilisers, processed grains, and biological farm inputs.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 items-center gap-6 lg:mt-[38px] lg:grid-cols-[272px_1fr_272px]">
-          <div className="relative hidden h-[448px] overflow-hidden rounded-[20px] lg:block">
+        <div className="mt-10 grid grid-cols-1 items-center gap-6 lg:mt-[43px] lg:grid-cols-[262px_1fr_262px] lg:gap-9">
+          <div className="relative hidden h-[440px] overflow-hidden rounded-[20px] lg:block">
             <Image
               src="/images/shop/seedlings.jpg"
               alt="Young maize seedlings growing in rich soil"
               fill
-              sizes="272px"
+              sizes="262px"
               className="object-cover"
             />
           </div>
-          <div className="rounded-[20px] border border-[#e9eae5] bg-white p-6 sm:px-9 sm:pt-9 sm:pb-[34px] lg:mt-[6px]">
+          <div className="rounded-[20px] border border-line bg-white p-6 sm:px-9 sm:pt-9 sm:pb-[32px]">
             <WaitlistForm />
           </div>
-          <div className="relative hidden h-[448px] overflow-hidden rounded-[20px] lg:block">
+          <div className="relative hidden h-[440px] overflow-hidden rounded-[20px] lg:block">
             <Image
               src="/images/shop/grains.jpg"
               alt="Baskets of maize and beans at a local market"
               fill
-              sizes="272px"
+              sizes="262px"
               className="object-cover"
             />
           </div>

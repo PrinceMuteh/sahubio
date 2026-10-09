@@ -2,6 +2,8 @@ export type LegalDocument = {
   slug: "privacy-policy" | "terms-of-service" | "cookie-policy";
   title: string;
   effectiveDate: string;
+  /** Hero surface, as set per page in the design. */
+  heroTone: "brand" | "deep";
   description: string;
   sections: { heading: string; body: string }[];
 };
@@ -9,6 +11,7 @@ export type LegalDocument = {
 export const legalDocuments: Record<LegalDocument["slug"], LegalDocument> = {
   "privacy-policy": {
     slug: "privacy-policy",
+    heroTone: "deep",
     title: "Privacy Policy",
     effectiveDate: "October 2026",
     description:
@@ -38,6 +41,7 @@ export const legalDocuments: Record<LegalDocument["slug"], LegalDocument> = {
   },
   "terms-of-service": {
     slug: "terms-of-service",
+    heroTone: "brand",
     title: "Terms of Service",
     effectiveDate: "October 2026",
     description:
@@ -67,6 +71,7 @@ export const legalDocuments: Record<LegalDocument["slug"], LegalDocument> = {
   },
   "cookie-policy": {
     slug: "cookie-policy",
+    heroTone: "brand",
     title: "Cookie Policy",
     effectiveDate: "October 2026",
     description: "How SAHUBio uses cookies on its website.",
