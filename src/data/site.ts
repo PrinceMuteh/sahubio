@@ -23,15 +23,23 @@ export const site = {
 } as const;
 
 /**
- * Social profiles. The design shows the icons only — replace the URLs with the
- * company's real handles when they are available.
+ * Social profiles shown in the footer. TikTok still points at the platform
+ * home page until the company's handle is confirmed.
  */
 export const socialLinks = [
-  { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/" },
-  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/" },
-  { label: "X (Twitter)", icon: "x", href: "https://x.com/" },
+  {
+    label: "Facebook",
+    icon: "facebook",
+    href: "https://www.facebook.com/profile.php?id=61569210957388",
+  },
+  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/sahubio.ng" },
+  { label: "X (Twitter)", icon: "x", href: "https://x.com/sahubio_ng" },
   { label: "TikTok", icon: "tiktok", href: "https://www.tiktok.com/" },
-  { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/" },
+  {
+    label: "LinkedIn",
+    icon: "linkedin",
+    href: "https://www.linkedin.com/company/sahubio-nigeria/",
+  },
 ] as const;
 
 export type SocialIcon = (typeof socialLinks)[number]["icon"];
