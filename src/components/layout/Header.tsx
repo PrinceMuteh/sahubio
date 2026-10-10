@@ -34,7 +34,7 @@ function NigeriaFlag({ className }: { className?: string }) {
       viewBox="0 0 38 28"
       role="img"
       aria-label="Nigeria"
-      className={cn("h-[28px] w-[38px] shrink-0", className)}
+      className={cn("h-[21px] w-[30px] shrink-0 xl:h-[28px] xl:w-[38px]", className)}
     >
       <rect width="38" height="28" fill="#fff" />
       <rect width="13" height="28" fill="#257c30" />
@@ -209,7 +209,7 @@ export function Header() {
 
         <nav
           aria-label="Main"
-          className="absolute inset-y-0 left-[calc(50%-45px)] hidden -translate-x-1/2 lg:block"
+          className="absolute inset-y-0 left-[calc(50%-65px)] hidden -translate-x-1/2 lg:block xl:left-[calc(50%-45px)]"
         >
           <ul className="flex h-full items-start gap-3 xl:gap-6">
             {mainNav.map((item) => (
@@ -231,27 +231,29 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex xl:mr-[5px]">
-          <NigeriaFlag className="hidden xl:block" />
-          <ButtonLink href="/contact" className="gap-2.5 px-5 xl:w-[190px] xl:gap-4 xl:px-6">
+        <div className="flex items-center gap-3 lg:gap-[10px] xl:mr-[5px] xl:gap-5">
+          <NigeriaFlag />
+          <ButtonLink
+            href="/contact"
+            className="hidden gap-2.5 px-5 lg:inline-flex xl:w-[190px] xl:gap-4 xl:px-6"
+          >
             Partner With Us
           </ButtonLink>
+          <button
+            type="button"
+            onClick={() => {
+              // The header scrolls with the page, so pin the menu to its current bottom edge.
+              setMenuTop(barRef.current?.getBoundingClientRect().bottom ?? 0);
+              setOpen((value) => !value);
+            }}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="flex size-11 items-center justify-center rounded-full border border-line text-brand-800 lg:hidden"
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
         </div>
-
-        <button
-          type="button"
-          onClick={() => {
-            // The header scrolls with the page, so pin the menu to its current bottom edge.
-            setMenuTop(barRef.current?.getBoundingClientRect().bottom ?? 0);
-            setOpen((value) => !value);
-          }}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="flex size-11 items-center justify-center rounded-full border border-line text-brand-800 lg:hidden"
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
       </Container>
 
       {desktopDivisionsOpen && (
