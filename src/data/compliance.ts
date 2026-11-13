@@ -54,14 +54,28 @@ export const registrations: Registration[] = [
     reference: "Classes 1, 29, 31, 44",
     status: "Accepted & Journal Pending",
   },
+  {
+    body: "FMAFS (FISS)",
+    document: "Fertilizer Sales Permit — Distributor, Category A",
+    reference: "FISS003633A",
+    status: "Valid 9 Nov 2026 – 9 Nov 2029",
+  },
 ];
 
-/** Certificates shown in the preview grid. Add `file` once certified copies exist. */
+/**
+ * Certificates shown in the preview grid. Cards with a `file` (path under /public)
+ * show the scanned certificate; the rest render a placeholder until a copy is supplied.
+ */
 export const certificatePreviews: {
   body: string;
   document: string;
   file?: string;
 }[] = [
+  {
+    body: "FMAFS",
+    document: "Fertilizer Sales Permit (FISS003633A)",
+    file: "/images/compliance/fmafs-fertilizer-sales-permit.jpg",
+  },
   { body: "CAC", document: "Certificate of Incorporation" },
   { body: "NEPC", document: "Exporters' Registration Certificate" },
   { body: "NRS", document: "Tax Clearance Certificate (TCC)" },
