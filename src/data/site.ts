@@ -5,7 +5,7 @@ export const site = {
   tagline: "Agriculture. Biological Resources. Growth.",
   description:
     "Indigenous expertise in sustainable farming, biological resources, agro-logistics, and international commodity trade across 7 specialized agro divisions.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahubio.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sahubio.ng",
   rcNumber: "RC 1208792",
   tin: "2521515889411",
   incorporated: 2014,

@@ -62,7 +62,7 @@ export const team: TeamMember[] = [
   {
     name: "Mohammed Musa",
     role: "GMD",
-    profession: "Architect/Farming",
+    profession: "Quantity Surveyor/Farming",
     image: "/images/team/mohammed-musa-prototype.png",
   },
   {
