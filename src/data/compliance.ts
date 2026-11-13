@@ -5,6 +5,21 @@ export type Registration = {
   status: string;
 };
 
+/** FMAFS fertilizer sales permit — shown on the Compliance and About pages. */
+export const fertilizerPermit = {
+  number: "FISS003633A",
+  category: "A",
+  issuer: "Federal Ministry of Agriculture and Food Security",
+  issuerShort: "FMAFS",
+  department: "Farm Inputs Support Services (FISS)",
+  act: "National Fertilizer Quality (Control) Act, 2019",
+  validFrom: "9 Nov 2026",
+  validTo: "9 Nov 2029",
+  file: "/images/compliance/fmafs-fertilizer-sales-permit.jpg",
+  width: 1280,
+  height: 906,
+} as const;
+
 export const registrations: Registration[] = [
   {
     body: "CAC",
@@ -56,9 +71,9 @@ export const registrations: Registration[] = [
   },
   {
     body: "FMAFS (FISS)",
-    document: "Fertilizer Sales Permit — Distributor, Category A",
-    reference: "FISS003633A",
-    status: "Valid 9 Nov 2026 – 9 Nov 2029",
+    document: `Fertilizer Sales Permit — Distributor, Category ${fertilizerPermit.category}`,
+    reference: fertilizerPermit.number,
+    status: `Valid ${fertilizerPermit.validFrom} – ${fertilizerPermit.validTo}`,
   },
 ];
 
@@ -72,9 +87,9 @@ export const certificatePreviews: {
   file?: string;
 }[] = [
   {
-    body: "FMAFS",
-    document: "Fertilizer Sales Permit (FISS003633A)",
-    file: "/images/compliance/fmafs-fertilizer-sales-permit.jpg",
+    body: fertilizerPermit.issuerShort,
+    document: `Fertilizer Sales Permit (${fertilizerPermit.number})`,
+    file: fertilizerPermit.file,
   },
   { body: "CAC", document: "Certificate of Incorporation" },
   { body: "NEPC", document: "Exporters' Registration Certificate" },

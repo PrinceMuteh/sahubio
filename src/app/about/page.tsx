@@ -4,6 +4,7 @@ import { WhoWeAre } from "@/components/about/WhoWeAre";
 import { VisionMission } from "@/components/about/VisionMission";
 import { TeamSection } from "@/components/about/TeamSection";
 import { CoreValues } from "@/components/about/CoreValues";
+import { LicenseHighlight } from "@/components/about/LicenseHighlight";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function AboutPage() {
         imageAlt="Young maize rows stretching towards trees at sunset"
       />
       <WhoWeAre />
+      <LicenseHighlight />
       <section className="bg-cream py-16 lg:pt-[72px] lg:pb-[79px]">
         <Container>
           <VisionMission />

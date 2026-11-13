@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { fertilizerPermit } from "@/data/compliance";
 import { site, socialLinks } from "@/data/site";
 import "./globals.css";
 
@@ -75,7 +76,7 @@ const organizationJsonLd = {
     {
       "@type": "PropertyValue",
       propertyID: "FMAFS Fertilizer Sales Permit",
-      value: "FISS003633A",
+      value: fertilizerPermit.number,
     },
   ],
   sameAs: socialLinks.map((link) => link.href).filter((href) => href !== "https://www.tiktok.com/"),
