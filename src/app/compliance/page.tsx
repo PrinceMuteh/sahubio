@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "Regulatory Compliance & Corporate Integrity",
   description:
-    "SAHUBio maintains up-to-date documentation with all Nigerian statutory, financial, and trade regulators — CAC, NRS, NEPC, SCUML, NSITF, ITF, PenCom, FMITI and FMAFS, including a Federal fertilizer sales permit.",
+    "SAHUBio maintains up-to-date documentation with all Nigerian statutory, financial, and trade regulators — CAC, NRS, NEPC, SCUML, NSITF, ITF, PenCom, FMITI, FMAFS and BPP, including a Federal fertilizer sales permit.",
 };
 
 export default function CompliancePage() {
@@ -42,7 +42,7 @@ export default function CompliancePage() {
         </Container>
       </section>
 
-      <section className="bg-cream py-16 lg:pt-[69px] lg:pb-[72px]">
+      <section id="certificates" className="scroll-mt-24 bg-cream py-16 lg:pt-[69px] lg:pb-[72px]">
         <Container>
           <h2 className="text-[30px] leading-[1.2] font-bold text-heading lg:text-[38px] lg:leading-[46px]">
             Verified Certificate Document Previews

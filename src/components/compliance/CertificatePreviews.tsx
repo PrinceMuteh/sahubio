@@ -31,7 +31,7 @@ function Thumbnail({ certificate }: { certificate: Certificate }) {
         src={certificate.file}
         alt={`${certificate.body} ${certificate.document}`}
         fill
-        sizes="(min-width: 1280px) 220px, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
+        sizes="(min-width: 1280px) 380px, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
         className="object-contain p-2"
       />
     </div>
@@ -51,7 +51,7 @@ export function CertificatePreviews() {
 
   return (
     <>
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {certificatePreviews.map((certificate) => (
           <li key={certificate.body}>
             <button

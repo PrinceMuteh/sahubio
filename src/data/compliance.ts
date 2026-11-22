@@ -20,6 +20,18 @@ export const fertilizerPermit = {
   height: 906,
 } as const;
 
+/** BPP Interim Registration Report — shown on the Compliance page. */
+export const bppRegistration = {
+  reference: "0000-0023-1421",
+  issuer: "Bureau of Public Procurement",
+  issuerShort: "BPP",
+  generated: "16 Nov 2026",
+  validTo: "31 Dec 2026",
+  file: "/images/compliance/bpp-interim-registration-report.jpg",
+  width: 1600,
+  height: 1131,
+} as const;
+
 export const registrations: Registration[] = [
   {
     body: "CAC",
@@ -75,6 +87,12 @@ export const registrations: Registration[] = [
     reference: fertilizerPermit.number,
     status: `Valid ${fertilizerPermit.validFrom} – ${fertilizerPermit.validTo}`,
   },
+  {
+    body: bppRegistration.issuerShort,
+    document: "Interim Registration Report (IRR)",
+    reference: `Ref. No. ${bppRegistration.reference}`,
+    status: `Valid to ${bppRegistration.validTo}`,
+  },
 ];
 
 /**
@@ -90,6 +108,11 @@ export const certificatePreviews: {
     body: fertilizerPermit.issuerShort,
     document: `Fertilizer Sales Permit (${fertilizerPermit.number})`,
     file: fertilizerPermit.file,
+  },
+  {
+    body: bppRegistration.issuerShort,
+    document: `Interim Registration Report (${bppRegistration.reference})`,
+    file: bppRegistration.file,
   },
   { body: "CAC", document: "Certificate of Incorporation" },
   { body: "NEPC", document: "Exporters' Registration Certificate" },
